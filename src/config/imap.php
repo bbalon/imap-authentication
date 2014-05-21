@@ -2,5 +2,5 @@
 
 return array(
     'identifier' => 'username',
-    'datasource' => '{localhost:143}/readonly'
+    'datasource' => '{localhost:143/readonly}'
 );
