@@ -1,0 +1,19 @@
+{
+    "name": "ronaldcastillo/imap-authentication",
+    "keywords": ["laravel", "imap", "auth", "authentication"],
+    "authors": [
+        {
+            "name": "Ronald Castillo",
+            "email": "ronaldcastillo@gmail.com"
+        }
+    ],
+    "require": {
+        "ext-imap": "*",
+        "illuminate/auth": "4.1.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "RonaldCastillo": "src"
+        }
+    }
+}
