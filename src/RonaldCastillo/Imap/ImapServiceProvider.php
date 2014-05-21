@@ -20,7 +20,7 @@ class ImapServiceProvider extends ServiceProvider
         {
             return new ImapUserProvider(
                 $this->app['config']->get('auth.model'),
-                $this->app['config']->get('imap')
+                $this->app['config']->get('imap-authentication::imap')
             );
         });
     }
