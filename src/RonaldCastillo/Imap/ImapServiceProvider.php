@@ -16,11 +16,13 @@ class ImapServiceProvider extends ServiceProvider
     {
         $this->package('ronaldcastillo/imap-authentication');
 
-        $this->app['auth']->extend('imap', function()
+        $app = $this->app;
+
+        $this->app['auth']->extend('imap', function() use ($app)
         {
             return new ImapUserProvider(
-                $this->app['config']->get('auth.model'),
-                $this->app['config']->get('imap-authentication::imap')
+                $app['config']->get('auth.model'),
+                $app['config']->get('imap-authentication::imap')
             );
         });
     }
