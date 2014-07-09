@@ -79,7 +79,7 @@ class ImapUserProvider implements UserProviderInterface
 
             $user = new $this->model($credentials);
 
-            $this->session->set('user.active', $user);
+            $this->session->set('user.current', $user);
 
             return $user;
         }
