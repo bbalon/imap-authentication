@@ -10,7 +10,8 @@
     "require": {
         "php": ">=5.3.2",
         "ext-imap": "*",
-        "illuminate/auth": "4.1.*"
+        "illuminate/auth": "4.1.*",
+        "illuminate/session": "4.1.*"
     },
     "autoload": {
         "psr-0": {

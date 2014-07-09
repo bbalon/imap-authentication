@@ -22,7 +22,8 @@ class ImapServiceProvider extends ServiceProvider
         {
             return new ImapUserProvider(
                 $app['config']->get('auth.model'),
-                $app['config']->get('imap-authentication::imap')
+                $app['config']->get('imap-authentication::imap'),
+                $app['session.store']
             );
         });
     }

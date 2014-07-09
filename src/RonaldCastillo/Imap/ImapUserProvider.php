@@ -2,6 +2,7 @@
 
 namespace RonaldCastillo\Imap;
 
+use Illuminate\Session\Store;
 use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\UserProviderInterface;
 
@@ -15,15 +16,22 @@ class ImapUserProvider implements UserProviderInterface
     protected $model;
 
     /**
+     * @protected
+     * @var Store
+     */
+    protected $session;
+
+    /**
      * Create a new imap user provider.
      *
      * @param string $model
      * @param array $params
      */
-    public function __construct($model, array $params)
+    public function __construct($model, array $params, Store $session)
     {
         $this->model = $model;
         $this->params = $params;
+        $this->session = $session;
     }
 
     /**
@@ -32,7 +40,10 @@ class ImapUserProvider implements UserProviderInterface
      * @param  mixed  $identifier
      * @return \Illuminate\Auth\UserInterface|null
      */
-    public function retrieveById($identifier) { }
+    public function retrieveById($identifier)
+    {
+        return $this->session->get('user.current');
+    }
 
     /**
      * Retrieve a user by by their unique identifier and "remember me" token.
@@ -65,7 +76,12 @@ class ImapUserProvider implements UserProviderInterface
 
         if(false !== $imap) {
             $credentials['id'] = $username;
-            return new $this->model($credentials);
+
+            $user = new $this->model($credentials);
+
+            $this->session->set('user.active', $user);
+
+            return $user;
         }
         return null;
     }
