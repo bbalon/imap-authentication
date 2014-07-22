@@ -72,7 +72,7 @@ class ImapUserProvider implements UserProviderInterface
     public function retrieveByCredentials(array $credentials)
     {
         $username = $credentials[$this->params['identifier']];
-        $imap = imap_open($this->params['datasource'], $username, $credentials['password']);
+        $imap = @\imap_open($this->params['datasource'], $username, $credentials['password']);
 
         if(false !== $imap) {
             $credentials['id'] = $username;
