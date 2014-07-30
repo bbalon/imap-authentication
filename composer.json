@@ -9,9 +9,11 @@
     ],
     "require": {
         "php": ">=5.3.2",
-        "ext-imap": "*",
         "illuminate/auth": "4.1.*",
         "illuminate/session": "4.1.*"
+    },
+    "suggest": {
+        "ext-imap": "Allows the use of this library in production environments"
     },
     "autoload": {
         "psr-0": {
