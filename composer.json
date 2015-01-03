@@ -9,8 +9,8 @@
     ],
     "require": {
         "php": ">=5.3.2",
-        "illuminate/auth": "4.1.*",
-        "illuminate/session": "4.1.*"
+        "illuminate/auth": ">=4.1 <=4.2",
+        "illuminate/session": ">=4.1 <=4.2"
     },
     "suggest": {
         "ext-imap": "Allows the use of this library in production environments"
